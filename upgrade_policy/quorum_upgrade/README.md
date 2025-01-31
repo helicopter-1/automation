@@ -50,7 +50,7 @@ There is a social contract at play here: we expect that in time a healthy ecosys
 of trustable entities will be established.
 We expect **SuiNS** to play a role in that as well, by giving a clear
 mapping between an address and the "entity" behind it.
-2. Determing the quorum required (the `k` in the `k` out of `n`).
+2. Determining the quorum required (the `k` in the `k` out of `n`).
 3. Wrap the `UpgradeCap` of the package in the **Quorum Upgrade Policy** so that from that 
 point on any upgrade must be voted according to the policy.
 
@@ -86,7 +86,7 @@ A voter has the following responsibilities:
 There are 3 main objects that play a role in a **Quorum Upgrade Policy**:
 1. `QuorumUpgradeCap`: this is the capability that wraps the original `UpgradeCap` for the
 package in question. That object is returned to the sender which can save it
-according to its usage. The `QuorumUpgradeCap` is used for proposing and commiting an upgrade.
+according to its usage. The `QuorumUpgradeCap` is used for proposing and committing an upgrade.
 So whoever the proposer of the upgrade is, they must have access to a reference of
 that object. Typically the package developer will own that object.
 2. `VotingCap`: all registered addresses, the possible voters on the policy, will receive
@@ -146,14 +146,14 @@ and upgrade is proposed.
 - `quorum_upgrade_policy::UpgradeVoted` will report a vote happening
 against a given proposal.
 - `quorum_upgrade_policy::UpgradePerformed` will indicate that the
-upgrade was performed and commited.
+upgrade was performed and committed.
 - `quorum_upgrade_policy::UpgradeDestroyed` is emitted when the
 proposal is destroyed.
 
 
 ## Limitation and Future 
 In principle the **Quorum Upgrade Policy Package** should be immutable given
-that an adversarial upgrade to that policy could comprimise the policy
+that an adversarial upgrade to that policy could compromise the policy
 itself. However we at Mysten have plan to update that code to provide
 important missing features. It was critical to get the policy in place as soon
 as possible in order for DeFi protocols to start using it, and to give users a
@@ -172,7 +172,7 @@ proper to be able to switch those at will. It's possible that voting for a trans
 is all that will be required, however we are still considering the alternatives.
 
 Shared object deletion is coming very soon, and today the policy protocol is
-not as seemless as it could be if that feature was already available. In
+not as seamless as it could be if that feature was already available. In
 an ideal scenario the `quorum_upgrade_policy::authorize_upgrade` should
 take the `ProposedUpgrade` by value and destroy it. But that does not work
 for now. As soon as shared object deletion is enabled we may decide to
@@ -181,7 +181,7 @@ by value.
 
 Also, and for the same reasons, `quorum_upgrade_policy::destroy_proposed_upgrade`
 will not work right now. However we thought it was important to expose
-that API right now so that once shared object deletion is avaiable,
+that API right now so that once shared object deletion is available,
 `ProposedUpgrade` instances can be deleted and the storage cost recovered.
 
 We are also considering offering an alternative way to vote in a proposal by
