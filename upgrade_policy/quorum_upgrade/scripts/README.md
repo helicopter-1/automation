@@ -16,7 +16,7 @@ values in the source file).
 ## Installation
 * `sui` has to be installed on the machine (https://docs.sui.io/references/cli/client 
 and https://docs.sui.io/guides/developer/getting-started/sui-install) and 
-the path to sui availabe to the typescript package
+the path to sui available to the typescript package
 * run `pnpm install` from this directory (`<repo_install>/upgrade_policy/quorum_upgrade/scripts/ts`)
 
 ## Running
